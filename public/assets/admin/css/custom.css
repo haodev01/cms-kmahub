@@ -1,0 +1,51 @@
+.t-ellipsis-1 {
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 1 !important;
+    word-break: break-word;
+    white-space: normal;
+}
+
+.t-ellipsis-2 {
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    word-break: break-word;
+    white-space: normal;
+}
+
+.h-alert {
+    height: 50px;
+}
+
+.mr-2 {
+    margin-right: 8px;
+}
+
+.flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.flex-end {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.icon-font {
+    font-size: 18px;
+}
+
+.icon-font:before {
+    line-height: 24px !important;
+}

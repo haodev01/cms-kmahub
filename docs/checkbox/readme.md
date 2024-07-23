@@ -1,0 +1,5 @@
+selector: '.input-checkbox',
+selectorAll: '.input-checkbox-all',
+buttonDeleteAllSelector: '#button-delete-all',
+titleSelector: '.title-checkbox-selected',
+prefix: 'danh mục',
