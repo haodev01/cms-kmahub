@@ -89,7 +89,7 @@ formSubmit.on('submit', function (e) {
         const form = $(this);
         const id = form.data('id');
         const formData = new FormData(this);
-        fetcher.post(`/admin/courses/updateForm/${id}`, formData, {
+        fetcher.post(`/courses/updateForm/${id}`, formData, {
             processData: false,
             contentType: false,
             success: function (response) {

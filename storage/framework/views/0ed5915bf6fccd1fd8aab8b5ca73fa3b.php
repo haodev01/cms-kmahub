@@ -76,10 +76,9 @@ unset($__errorArgs, $__bag); ?>
                 </div>
                 <button class="btn btn-primary btn-block btn-lg shadow-lg mt-4">Đăng nhập</button>
             </form>
-
+            <a href="<?php echo e($auth_gg_url); ?>" class="btn btn-secondary"> Đăng nhập bằng Google</a>
         </div>
     </div>
-
 </div>
 </body>
 

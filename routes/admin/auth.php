@@ -7,7 +7,7 @@ use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\SectionController;
 use Illuminate\Support\Facades\Route;
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => ''], function () {
     Route::delete('/course-categories-destroyMany', [CategoryController::class, 'destroyMany'])->name('categories.destroyMany');
     Route::resource('/course-categories', CategoryController::class);
     Route::get('/', function () {

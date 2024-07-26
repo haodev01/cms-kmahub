@@ -118,7 +118,7 @@
             const form = $(this);
             const id = form.data('id');
             const formData = new FormData(this);
-            fetcher.post(`/admin/lessons/updateContent/${id}`, formData, {
+            fetcher.post(`/lessons/updateContent/${id}`, formData, {
                 processData: false,
                 contentType: false,
                 success: function (response) {

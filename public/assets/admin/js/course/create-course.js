@@ -106,12 +106,12 @@ iconCloseVideo.click(() => {
 $('#formSubmit').on('submit', function (e) {
         e.preventDefault();
         const formData = new FormData(this);
-        fetcher.post('/admin/courses', formData, {
+        fetcher.post('/courses', formData, {
             processData: false,
             contentType: false,
             success: function (response) {
                 const {id} = response.data
-                window.location.href = '/admin/courses/update-content/' + id
+                window.location.href = '/courses/update-content/' + id
             },
             error: function (response) {
                 const errors = response.responseJSON.errors;

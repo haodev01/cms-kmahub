@@ -31,7 +31,7 @@ class RouteServiceProvider extends ServiceProvider
                 ->prefix('api')
                 ->group(base_path('routes/api.php'));
 
-            Route::domain('dashboard.lms.com')
+            Route::domain('cms.kmahub.com')
                 ->middleware('web')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/admin/index.php'));

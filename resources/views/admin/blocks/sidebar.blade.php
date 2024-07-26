@@ -17,31 +17,31 @@
         </div>
         <div class="sidebar-menu">
             <ul class="menu">
-                <li class="sidebar-item {{NavigationHelper::isActive(['admin'])}} ">
+                <li class="sidebar-item {{NavigationHelper::isActive(['/'])}} ">
                     <a href="{{route('admin.dashboard')}}" class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
-                <li class="sidebar-item  {{NavigationHelper::isActive(['admin/course-categories*'])}} ">
+                <li class="sidebar-item  {{NavigationHelper::isActive(['course-categories*'])}} ">
                     <a href="{{route('course-categories.index')}}" class='sidebar-link'>
                         <i class="bi bi-stack"></i>
                         <span>Quản lý danh mục</span>
                     </a>
                 </li>
-                <li class="sidebar-item  {{NavigationHelper::isActive(['admin/courses*'])}}  ">
+                <li class="sidebar-item  {{NavigationHelper::isActive(['courses*'])}}  ">
                     <a href="{{route('courses.index')}}" class='sidebar-link'>
                         <i class="bi bi-grid-1x2-fill"></i>
                         <span> Quản lý khóa học</span>
                     </a>
                 </li>
-                <li class="sidebar-item  {{NavigationHelper::isActive(['admin/sections*'])}}  ">
+                <li class="sidebar-item  {{NavigationHelper::isActive(['sections*'])}}  ">
                     <a href="{{route('sections.index')}}" class='sidebar-link'>
                         <i class="bi bi-grid-1x2-fill"></i>
                         <span>Quản lý chương</span>
                     </a>
                 </li>
-                <li class="sidebar-item  {{NavigationHelper::isActive(['admin/lessons*'])}}  ">
+                <li class="sidebar-item  {{NavigationHelper::isActive(['lessons*'])}}  ">
                     <a href="{{route('lessons.index')}}" class='sidebar-link'>
                         <i class="bi bi-grid-1x2-fill"></i>
                         <span>Quản lý bài học</span>
