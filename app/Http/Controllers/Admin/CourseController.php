@@ -13,9 +13,7 @@ use App\Models\Course;
 use Exception;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use function MongoDB\BSON\toJSON;
 
 class CourseController extends Controller
 {
@@ -30,7 +28,7 @@ class CourseController extends Controller
         $courses = FilterHelper::filterSearchFromRequest($courses, $request);
         $courses = FilterHelper::filterLevelFromRequest($courses, $request);
         $courses = FilterHelper::filterCreatedFromRequest($courses, $request);
-        $courses = $courses->sortable()->paginate(10);
+        $courses = $courses->with(['category', 'createdBy'])->sortable()->paginate(10);
         return view('admin.pages.courses.index', compact('courses', 'admins'));
     }
 
@@ -135,8 +133,9 @@ class CourseController extends Controller
     public function updateContent($id): View
     {
         $course = Course::find($id);
-        $sections = $course->sections;
-        return view('admin.pages.courses.update-content', compact('id', 'sections', 'course'));
+        $course = $course->with('sections.lessons')->first();
+    
+        return view('admin.pages.courses.update-content', compact('id', 'course'));
     }
 
     public function destroyMany(Request $request): JsonResponse

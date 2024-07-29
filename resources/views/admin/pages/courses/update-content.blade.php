@@ -39,7 +39,7 @@
             </div>
         </div>
         <div id="sectionList">
-            @foreach($sections as $index=> $section)
+            @foreach($course->sections as $index=> $section)
                 <div class="mt-3 rounded-3" style="background:rgba(227, 227, 227, 0.8); padding: 16px">
                     <div class="d-flex align-items-center justify-content-between">
                         <h4 class="mb-0">Chương {{ $index + 1 }}: {{$section->name}}</h4>

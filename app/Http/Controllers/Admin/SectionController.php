@@ -25,7 +25,7 @@ class SectionController extends Controller
         $sections = FilterHelper::filterSearchFromRequest($sections, $request);
         $sections = FilterHelper::filterStatusFromRequest($sections, $request);
         $sections = FilterHelper::filterCourseFromRequest($sections, $request);
-        $sections = $sections->sortable();
+        $sections = $sections->with(['course', 'createdBy'])->sortable();
         $sections = $sections->paginate(10);
         return view('admin.pages.sections.index', compact('sections', 'courses'));
     }

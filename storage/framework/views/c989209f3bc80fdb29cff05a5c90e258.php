@@ -40,7 +40,7 @@
             </div>
         </div>
         <div id="sectionList">
-            <?php $__currentLoopData = $sections; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index=> $section): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <?php $__currentLoopData = $course->sections; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index=> $section): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <div class="mt-3 rounded-3" style="background:rgba(227, 227, 227, 0.8); padding: 16px">
                     <div class="d-flex align-items-center justify-content-between">
                         <h4 class="mb-0">Chương <?php echo e($index + 1); ?>: <?php echo e($section->name); ?></h4>

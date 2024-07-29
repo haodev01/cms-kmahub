@@ -6,14 +6,12 @@ use App\Helpers\ConstantsHelper;
 use App\Helpers\FileUpload;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LessonEditRequest;
-use App\Models\Course;
 use App\Models\Lesson;
 use App\Models\Section;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
 class LessonController extends Controller
 {
