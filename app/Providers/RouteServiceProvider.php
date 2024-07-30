@@ -27,11 +27,11 @@ class RouteServiceProvider extends ServiceProvider
         $this->configureRateLimiting();
 
         $this->routes(function () {
-            Route::domain('api.kmahub.com')
+            Route::domain(env('DOMAIN_API', '127.0.0.1'))
                 ->prefix('api')
                 ->group(base_path('routes/api.php'));
 
-            Route::domain('cms.kmahub.com')
+            Route::domain(env('DOMAIN_CMS', '127.0.0.1'))
                 ->middleware('web')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/admin/index.php'));
