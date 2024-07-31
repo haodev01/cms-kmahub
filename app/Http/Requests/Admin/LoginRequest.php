@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Requests\Admin;
-
+use Illuminate\Validation\Validator;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -37,4 +37,5 @@ class LoginRequest extends FormRequest
             'password.min' => 'Mật khẩu phải bao gồm ít nhất 6 kí tự.',
         ];
     }
+    
 }

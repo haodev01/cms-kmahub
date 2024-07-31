@@ -49,15 +49,14 @@ class CourseController extends Controller
     public function store(Request $request): JsonResponse
     {
         try {
-            // $request->validated();
-            // $thumb = FileUpload::image($request->file('thumbnail'));
-            // $video_preview = FileUpload::video($request->file('video'));
-            if (Storage::disk('public')->exists('/videos/20240729/ejyw975SQxfj104TtaCYGvguZw67UyvqmHqkKxVM.mp4')) {
-                $ffmpeg = FFMpeg::open('/public/videos/20240729/RE0LDAYM9UhyHvlwdwxGruksE8FObUQi68yMQnqT.mp4');
+            $request->validated();
+            $thumb = FileUpload::image($request->file('thumbnail'));
+            $video_preview = FileUpload::video($request->file('video'));
+            $durationInSeconds = 0;
+            if (Storage::disk('public')->exists($video_preview)) {
+                $ffmpeg = FFMpeg::fromDisk('public')->open($video_preview);
                 $durationInSeconds = $ffmpeg->getDurationInSeconds();
-                return response()->json($durationInSeconds);
             }
-            return response()->json("faild");
             $data = [
                 'name' => $request->input('name'),
                 'description' => $request->input('description'),
@@ -69,6 +68,7 @@ class CourseController extends Controller
                 'price_original' => $request->input('price_original'),
                 'price_sale' => $request->input('price_sale'),
                 'level' => $request->input('level') ?? 'beginner',
+                'duration' => $durationInSeconds,
             ];
             $course = Course::create($data);
             $this->createRequirementsForCourse($course, $request->input('requirments'));

@@ -9,4 +9,3 @@ Route::group(['middleware' => ['auth.admin']], function () {
     require_once 'auth.php';
 });
 
-//

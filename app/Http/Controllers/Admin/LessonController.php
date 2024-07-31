@@ -9,9 +9,11 @@ use App\Http\Requests\LessonEditRequest;
 use App\Models\Lesson;
 use App\Models\Section;
 use Exception;
+use FFMpeg;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class LessonController extends Controller
 {
@@ -44,9 +46,15 @@ class LessonController extends Controller
             'section_id' => $request->input('section_id'),
             'status' => $request->input('status') ?? 'draft',
         ];
+        $durationInSeconds = 0;
         if ($request->hasFile('video')) {
             $video = FileUpload::video($request->hasFile('videos/lessons'),);
+            if (Storage::disk('public')->exists($video)) {
+                $ffmpeg = FFMpeg::fromDisk('public')->open($video);
+                $durationInSeconds = $ffmpeg->getDurationInSeconds();
+            }
             $data['video'] = $video;
+            $data['duration'] = $durationInSeconds;
         }
         Lesson::create($data);
         return redirect()->back();
@@ -84,6 +92,11 @@ class LessonController extends Controller
             'status' => $request->input('status') ?? $statusDraft,
         ];
         $video = $this->createVideoLesson($request, $lessson);
+        if (Storage::disk('public')->exists($video)) {
+            $ffmpeg = FFMpeg::fromDisk('public')->open($video);
+            $durationInSeconds = $ffmpeg->getDurationInSeconds();
+            $data['duration'] = $durationInSeconds;
+        }
         if (!$video && !$lessson->video && $data['status'] !== $statusDraft) {
             return response()->json(
                 ['errors' => [

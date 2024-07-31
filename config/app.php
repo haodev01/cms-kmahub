@@ -197,6 +197,7 @@ return [
         Kyslik\ColumnSortable\ColumnSortableServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         ProtoneMedia\LaravelFFMpeg\Support\ServiceProvider::class,
+        Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
     ],
 
     /*

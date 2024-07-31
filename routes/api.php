@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\CourseApiController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\AuthApiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get("/courses",[CourseApiController::class, 'getAll'] );
 Route::get("/courses/{slug}",[CourseApiController::class, 'detail']);
+Route::post('register', [AuthApiController::class,'register']);
+Route::post('login', [AuthApiController::class,'login']);
+Route::post('logout',  [AuthApiController::class,'logout']);
+Route::post('refresh',  [AuthApiController::class,'refresh']);
+Route::get('profile',  [AuthApiController::class,'me']);

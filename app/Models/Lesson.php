@@ -16,7 +16,7 @@ class Lesson extends Model
 
     protected array $sortable = ['id', 'name', 'status', 'created_at', 'updated_at'];
 
-    protected $fillable = ['name', 'section_id', 'description', 'status', 'video'];
+    protected $fillable = ['name', 'section_id', 'description', 'status', 'video', 'duration', ];
 
     protected static function boot(): void
     {

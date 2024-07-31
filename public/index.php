@@ -4,7 +4,8 @@ use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
 
 define('LARAVEL_START', microtime(true));
-
+define('MSG_SUCCESS', 'OK');
+define('SUCCESS_CODE', 200);
 /*
 |--------------------------------------------------------------------------
 | Check If The Application Is Under Maintenance
