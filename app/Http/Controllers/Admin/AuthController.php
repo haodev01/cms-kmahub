@@ -16,7 +16,7 @@ class AuthController extends Controller
 {
     //
     public function login(): View
-    {
+    {   
         $instance = new GoogleHelper();
         $auth_gg_url = $instance->getUrlAuthentication();
         return view('admin.pages.auth.login', compact('auth_gg_url'));

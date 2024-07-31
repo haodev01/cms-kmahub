@@ -19,7 +19,7 @@
     <div class=" h-100 d-flex justify-content-center align-items-center ">
         <div style="max-width: 480px; width: 100%" class="auth-bg">
             <div class="auth-logo">
-                <a href="{{route('admin.dashboard')}}"><img
+                <a href="/"><img
                         src="{{AssetsHelper::assetKiaalap('images/logo/logo.png')}}"
                         alt="Logo"></a>
             </div>

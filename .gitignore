@@ -18,3 +18,5 @@ yarn-error.log
 /.vscode
 /storage/app/public
 /secrets
+/storage/debugbar
+/storage/framework
