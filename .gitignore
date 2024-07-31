@@ -17,6 +17,7 @@ yarn-error.log
 /.idea
 /.vscode
 /storage/app/public
+/storage/framework/views
 /secrets
 /storage/debugbar
 /storage/framework

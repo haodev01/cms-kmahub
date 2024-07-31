@@ -14,6 +14,8 @@ use Exception;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use FFMpeg;
+use Illuminate\Support\Facades\Storage;
 
 class CourseController extends Controller
 {
@@ -44,12 +46,18 @@ class CourseController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(CreateCourseRequest $request): JsonResponse
+    public function store(Request $request): JsonResponse
     {
         try {
-            $request->validated();
-            $thumb = FileUpload::image($request->file('thumbnail'));
-            $video_preview = FileUpload::video($request->file('video'));
+            // $request->validated();
+            // $thumb = FileUpload::image($request->file('thumbnail'));
+            // $video_preview = FileUpload::video($request->file('video'));
+            if (Storage::disk('public')->exists('/videos/20240729/ejyw975SQxfj104TtaCYGvguZw67UyvqmHqkKxVM.mp4')) {
+                $ffmpeg = FFMpeg::open('/public/videos/20240729/RE0LDAYM9UhyHvlwdwxGruksE8FObUQi68yMQnqT.mp4');
+                $durationInSeconds = $ffmpeg->getDurationInSeconds();
+                return response()->json($durationInSeconds);
+            }
+            return response()->json("faild");
             $data = [
                 'name' => $request->input('name'),
                 'description' => $request->input('description'),
